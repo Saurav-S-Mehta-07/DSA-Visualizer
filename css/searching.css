@@ -30,6 +30,7 @@ header a {
     box-sizing: border-box;
     background:#fafafa;
     border-right:1px solid #ccc;
+    overflow: scroll;
 }
 
 .left-panel input, .left-panel select, .left-panel button {
@@ -102,4 +103,21 @@ header a {
     margin-top:10px;
     font-weight:bold;
     font-size:1.1rem;
+}
+
+.btn{
+    border: 1px solid #4CAF50;
+    border-radius: 20px;
+}
+
+
+.document{
+    width: 100%;
+}
+
+.pseudo-code{
+    height: fit-content;
+    padding: 10px;
+    box-shadow: 2px 2px 20px #4CAF50;
+    border-radius: 20px;
 }

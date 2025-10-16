@@ -9,6 +9,10 @@ const arrayLengthInput = document.getElementById('array-length');
 const arrayInputField = document.getElementById('array-input');
 const currentArrayDiv = document.getElementById('current-array');
 
+const timeComplexity = document.getElementById('tc');
+const spaceComplexity = document.getElementById('sc');
+const pseudoDiv = document.querySelector('.pseudo-code');
+
 let array = [];
 
 function generateArray(length = 7) {
@@ -163,12 +167,12 @@ async function heapSort() {
 }
 
 function renderHeapTree(active1 = -1, active2 = -1) {
-    heapTree.innerHTML = '';
+    heapTree.innerHTML = ''; // Clear previous visualization
     const levels = Math.ceil(Math.log2(array.length + 1));
     const containerWidth = heapTree.offsetWidth;
     let index = 0;
-    let levelPositions = {};
 
+    // Loop through each level of the heap
     for (let i = 0; i < levels; i++) {
         const nodesInLevel = Math.min(Math.pow(2, i), array.length - index);
         const levelDiv = document.createElement('div');
@@ -179,46 +183,26 @@ function renderHeapTree(active1 = -1, active2 = -1) {
 
         const spacing = containerWidth / (nodesInLevel + 1);
 
+        // Create heap nodes (no connecting lines)
         for (let j = 0; j < nodesInLevel && index < array.length; j++) {
             const nodeDiv = document.createElement('div');
             nodeDiv.classList.add('heap-node');
             nodeDiv.textContent = array[index];
             nodeDiv.style.position = 'absolute';
+
+            // Set position
             const x = spacing * (j + 1) - 25;
-            const y = 0;
             nodeDiv.style.left = x + 'px';
-            nodeDiv.style.top = y + 'px';
-            if (index === active1 || index === active2) nodeDiv.classList.add('active');
+            nodeDiv.style.top = '0px';
+
+            // Highlight active nodes
+            if (index === active1 || index === active2)
+                nodeDiv.classList.add('active');
 
             levelDiv.appendChild(nodeDiv);
-            levelPositions[index] = { x: x + 25, y: y + 25 };
             index++;
         }
     }
-
-    for (let i = 0; i < array.length; i++) {
-        const leftChild = 2 * i + 1;
-        const rightChild = 2 * i + 2;
-        if (leftChild < array.length) drawHeapLine(levelPositions[i], levelPositions[leftChild]);
-        if (rightChild < array.length) drawHeapLine(levelPositions[i], levelPositions[rightChild]);
-    }
-}
-
-function drawHeapLine(parentPos, childPos) {
-    const line = document.createElement('div');
-    line.style.position = 'absolute';
-    line.style.backgroundColor = '#555';
-    const dx = childPos.x - parentPos.x;
-    const dy = childPos.y - parentPos.y;
-    const length = Math.hypot(dx, dy);
-    const angle = Math.atan2(dy, dx) * 180 / Math.PI;
-    line.style.width = length + 'px';
-    line.style.height = '2px';
-    line.style.left = parentPos.x + 'px';
-    line.style.top = parentPos.y + 'px';
-    line.style.transformOrigin = '0 0';
-    line.style.transform = `rotate(${angle}deg)`;
-    heapTree.appendChild(line);
 }
 
 algorithmSelect.addEventListener('change', updateVisualizationDisplay);
@@ -236,13 +220,122 @@ generateBtn.addEventListener('click', () => {
     renderHeapTree();
 });
 
+
 sortBtn.addEventListener('click', async () => {
     switch (algorithmSelect.value) {
-        case 'bubble': await bubbleSort(); break;
-        case 'selection': await selectionSort(); break;
-        case 'insertion': await insertionSort(); break;
-        case 'heap': await heapSort(); break;
-        case 'counting': await countingSort(); break;
+        case 'bubble': await bubbleSort();
+              timeComplexity.innerText = "Time Complexity: O(n^2)";
+              spaceComplexity.innerText = "Space Complexity : O(1)";
+              pseudoDiv.innerHTML = `
+                  <h2>Bubble Sort (Pseudo-code)</h2>
+                  <h3>
+                      function bubbleSort(array, n) <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;for i = 0 to n - 1 <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j = 0 to n - i - 2 <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if array[j] > array[j + 1] <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap array[j] and array[j + 1] <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;return array
+                  </h3>
+              `;
+
+              break;
+        case 'selection': 
+            await selectionSort();
+            timeComplexity.innerText = "Time Complexity: O(n^2)";
+            spaceComplexity.innerText = "Space Complexity : O(1)";
+            pseudoDiv.innerHTML = `
+                <h2>Selection Sort (Pseudo-code)</h2>
+                <h3>
+                    function selectionSort(array, n) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;for i = 0 to n - 2 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minIndex = i <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j = i + 1 to n - 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if array[j] < array[minIndex] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minIndex = j <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if minIndex != i <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap array[i] and array[minIndex] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return array
+                </h3>
+            `;
+            break;
+
+        case 'insertion': 
+            await insertionSort();
+            timeComplexity.innerText = "Time Complexity: O(n^2)";
+            spaceComplexity.innerText = "Space Complexity : O(1)";
+            pseudoDiv.innerHTML = `
+                <h2>Insertion Sort (Pseudo-code)</h2>
+                <h3>
+                    function insertionSort(array, n) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;for i = 1 to n - 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key = array[i] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j = i - 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while j >= 0 and array[j] > key <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[j + 1] = array[j] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j = j - 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[j + 1] = key <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return array
+                </h3>
+            `;
+            break;
+
+        case 'heap': 
+            await heapSort();
+            timeComplexity.innerText = "Time Complexity: O(n log n)";
+            spaceComplexity.innerText = "Space Complexity : O(1)";
+            pseudoDiv.innerHTML = `
+                <h2>Heap Sort (Pseudo-code)</h2>
+                <h3>
+                    function heapSort(array, n) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;buildMaxHeap(array, n) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;for i = n - 1 down to 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap array[0] and array[i] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heapify(array, 0, i) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return array <br><br>
+        
+                    function buildMaxHeap(array, n) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;for i = floor(n/2) - 1 down to 0 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heapify(array, i, n) <br><br>
+        
+                    function heapify(array, i, heapSize) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;largest = i <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;left = 2 * i + 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;right = 2 * i + 2 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if left < heapSize and array[left] > array[largest] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;largest = left <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if right < heapSize and array[right] > array[largest] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;largest = right <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if largest != i <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap array[i] and array[largest] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heapify(array, largest, heapSize)
+                </h3>
+            `;
+            break;
+
+       case 'counting': 
+            await countingSort();
+            timeComplexity.innerText = "Time Complexity: O(n + k)";
+            spaceComplexity.innerText = "Space Complexity : O(k)";
+            pseudoDiv.innerHTML = `
+                <h2>Counting Sort (Pseudo-code)</h2>
+                <h3>
+                    function countingSort(array, n) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;find max = maximum element in array <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;initialize count[0..max] = 0 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;for i = 0 to n - 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count[array[i]] = count[array[i]] + 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;for i = 1 to max <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count[i] = count[i] + count[i - 1] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;initialize output[0..n-1] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;for i = n - 1 down to 0 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output[count[array[i]] - 1] = array[i] <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count[array[i]] = count[array[i]] - 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;copy output array back to original array <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return array
+                </h3>
+            `;
+            break;
+
     }
 });
 

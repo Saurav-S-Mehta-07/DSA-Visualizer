@@ -5,9 +5,16 @@ body {
     background: #f7f7f7;
 }
 
-h1 {
+
+#heading{
+    height: 100px;
     text-align: center;
-    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4CAF50;
+    margin-top: 0;
+    color: #f7f7f7;
 }
 
 .container {
@@ -23,6 +30,7 @@ h1 {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 
 .left-panel label {
@@ -98,7 +106,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 400px;
+    height: 100%;
     border: 1px solid gray;
 }
 
@@ -127,4 +135,18 @@ h1 {
 
 .heap-node.sorted {
     background-color: #2196F3;
+}
+
+
+.document{
+    width: 100%;
+    margin-top: 10px;
+    height: 20%;
+}
+
+.pseudo-code{
+    height: fit-content;
+    padding: 10px;
+    box-shadow: 2px 2px 20px #4CAF50;
+    border-radius: 20px;
 }

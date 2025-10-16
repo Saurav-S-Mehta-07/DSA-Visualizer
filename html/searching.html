@@ -9,7 +9,7 @@
 <body>
 <header>
     <h1>Searching Algorithms Visualizer</h1>
-    <a href="index.html">← Back to Home</a>
+    <a href="../html/home.html">← Back to Home</a>
 </header>
 
 <div class="container">
@@ -30,14 +30,15 @@
 
         <label for="search-target">Target Value:</label>
         <input type="number" id="search-target" placeholder="Enter value to search">
-
-        <label>
-            <input type="checkbox" id="auto-generate" checked>
-            Auto-generate array
+         
+        <label for="auto-generate" style="display: flex; width: 100%; height: 50px">  
+            <input  type="checkbox" id="auto-generate"  checked>
+             <p>Auto-generate array </p>
         </label>
-
-        <button id="generate">Generate Array</button>
-        <button id="start-search">Start Search</button>
+     
+        <br>
+        <button id="generate" class="btn">Generate Array</button>
+        <button id="start-search" class="btn">Start Search</button>
 
         <h3>Current Array:</h3>
         <div id="current-array"></div>
@@ -47,6 +48,16 @@
         <h2>Array Visualization</h2>
         <div id="array-container"></div>
         <div id="search-target-display"></div>
+
+        <div class="document">
+            
+            <div class="complexity">
+                <h2 id="tc"></h2>
+                <h2 id="sc"></h2>
+            </div>
+            <hr>
+            <div class="pseudo-code"></div>
+        </div>
     </div>
 </div>
 

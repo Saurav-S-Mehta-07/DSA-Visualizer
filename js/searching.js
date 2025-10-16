@@ -8,6 +8,10 @@ const currentArrayDiv = document.getElementById('current-array');
 const searchTargetInput = document.getElementById('search-target');
 const searchTargetDisplay = document.getElementById('search-target-display');
 
+const timeComplexity = document.getElementById('tc');
+const spaceComplexity = document.getElementById('sc');
+const pseudoDiv = document.querySelector('.pseudo-code');
+
 let array = [];
 
 function sleep(ms){ return new Promise(resolve => setTimeout(resolve, ms)); }
@@ -103,8 +107,43 @@ startSearchBtn.addEventListener('click', async ()=>{
         alert('Please enter a valid target value');
         return;
     }
-    if(algorithmSelect.value==='linear') await linearSearch(target);
-    else await binarySearch(target);
+    if(algorithmSelect.value==='linear'){
+         await linearSearch(target);
+         timeComplexity.innerText = "Time Complexity : O(n^2)";
+         spaceComplexity.innerText = "Space Comaplexity : O(1)";
+          pseudoDiv.innerHTML = `
+            <h2>Linear Search (Pseudo-code)</h2>
+            <h3>
+                function linearSearch(array, n, key) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for i = 0 to n - 1 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if array[i] == key <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i &nbsp;&nbsp;// key found at index i <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return -1 &nbsp;&nbsp;// key not found
+            </h3>
+           `;
+    }
+    else{
+        await binarySearch(target);
+        timeComplexity.innerText = "Time Complexity : O(log n)";
+         spaceComplexity.innerText = "Space Comaplexity : O(1)";
+         pseudoDiv.innerHTML = `
+            <h2>Binary Search (Pseudo-code)</h2>
+            <h3>
+                function binarySearch(array, n, key) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;low = 0 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;high = n - 1 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;while low <= high <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mid = (low + high) / 2 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if array[mid] == key <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return mid &nbsp;&nbsp;// key found at index mid <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if array[mid] < key <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low = mid + 1 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high = mid - 1 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return -1 &nbsp;&nbsp;// key not found
+            </h3>
+         `;
+    }
 });
 
 generateArray();
