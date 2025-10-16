@@ -8,14 +8,15 @@ body {
 header {
     text-align: center;
     padding: 5px;
-    background:hwb(122 30% 32%);
-    color:white;
+    background:#A1C2BD;
+    color:#000;
+    border-bottom:1px solid #000000;
 }
 
 header a {
     display:block;
     margin-top:5px;
-    color:white;
+    color:#000;
     text-decoration:none;
 }
 
@@ -81,7 +82,7 @@ header a {
 
 .bar {
     margin:0 5px;
-    background-color:#4CAF50;
+    background-color:#000000;
     width:40px;
     display:flex;
     align-items:flex-end;

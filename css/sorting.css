@@ -17,6 +17,22 @@ body {
     color: #f7f7f7;
 }
 
+header{
+   text-align: center;
+   padding: 15px;
+   background-color: #A1C2BD;
+   color: #000;
+   border-bottom:1px solid #000000;
+}
+
+header a{
+    display: block;
+    margin-top: 5px;
+    color: #000;
+    text-decoration: none;
+}
+
+
 .container {
     display: flex;
     width: 100%;
@@ -85,7 +101,7 @@ body {
 .bar {
     margin: 0 2px;
     width: 50px;
-    background-color: #4CAF50;
+    background-color: #000000;
     transition: all 0.3s ease;
 }
 

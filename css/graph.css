@@ -8,14 +8,15 @@ body {
 header{
    text-align: center;
    padding: 15px;
-   background-color: #4CAF50;
-   color: white;
+   background-color: #A1C2BD;
+   color: #000;
+   border-bottom:1px solid #000000;
 }
 
 header a{
     display: block;
     margin-top: 5px;
-    color: white;
+    color: #000;
     text-decoration: none;
 }
 
@@ -25,8 +26,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #f7f7f7;
-    background-color: #4CAF50;
+    color:#000;
 }
 
 .container {
