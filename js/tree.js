@@ -7,6 +7,10 @@ const preorderBtn = document.getElementById('preorder-btn');
 const inorderBtn = document.getElementById('inorder-btn');
 const postorderBtn = document.getElementById('postorder-btn');
 
+const timeComplexity = document.getElementById('tc');
+const spaceComplexity = document.getElementById('sc');
+const pseudoDiv = document.querySelector('.pseudo-code');
+
 let treeArray = [];
 
 function sleep(ms){ return new Promise(resolve => setTimeout(resolve, ms)); }
@@ -113,8 +117,56 @@ generateTreeBtn.addEventListener('click', ()=>{
     generateTree(size);
 });
 
-preorderBtn.addEventListener('click', ()=>preorderTraversal());
-inorderBtn.addEventListener('click', ()=>inorderTraversal());
-postorderBtn.addEventListener('click', ()=>postorderTraversal());
+preorderBtn.addEventListener('click', () => {
+    preorderTraversal();
+    timeComplexity.innerText = "Time Complexity: O(n)";
+    spaceComplexity.innerText = "Space Complexity: O(h)"; 
+    pseudoDiv.innerHTML = `
+        <h2>Preorder Traversal (Pseudo-code)</h2>
+        <h3>
+            function preorder(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if node == null <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;visit(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;preorder(node.left) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;preorder(node.right)
+        </h3>
+    `;
+});
+
+inorderBtn.addEventListener('click', () => {
+    inorderTraversal();
+    timeComplexity.innerText = "Time Complexity: O(n)";
+    spaceComplexity.innerText = "Space Complexity: O(h)"; 
+    pseudoDiv.innerHTML = `
+        <h2>Inorder Traversal (Pseudo-code)</h2>
+        <h3>
+            function inorder(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if node == null <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;inorder(node.left) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;visit(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;inorder(node.right)
+        </h3>
+    `;
+});
+
+postorderBtn.addEventListener('click', () => {
+    postorderTraversal();
+    timeComplexity.innerText = "Time Complexity: O(n)";
+    spaceComplexity.innerText = "Space Complexity: O(h)"; 
+    pseudoDiv.innerHTML = `
+        <h2>Postorder Traversal (Pseudo-code)</h2>
+        <h3>
+            function postorder(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if node == null <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;postorder(node.left) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;postorder(node.right) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;visit(node)
+        </h3>
+    `;
+});
+
 
 generateTree(parseInt(treeSizeInput.value));

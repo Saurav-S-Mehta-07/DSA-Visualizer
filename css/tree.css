@@ -100,3 +100,17 @@ header a {
     background: #555;
     transform-origin: top left;
 }
+
+
+.document{
+    width: 100%;
+    margin-top: 10px;
+    height: 20%;
+}
+
+.pseudo-code{
+    height: fit-content;
+    padding: 10px;
+    box-shadow: 2px 2px 20px #4CAF50;
+    border-radius: 20px;
+}

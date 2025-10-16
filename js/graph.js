@@ -11,6 +11,10 @@ const componentsBtn = document.getElementById('components-btn');
 const dijkstraBtn = document.getElementById('dijkstra-btn');
 const primsBtn = document.getElementById('prims-btn');
 
+const timeComplexity = document.getElementById('tc');
+const spaceComplexity = document.getElementById('sc');
+const pseudoDiv = document.querySelector('.pseudo-code');
+
 let edges = [];
 let positions = {};
 let numNodes = 6;
@@ -220,8 +224,112 @@ generateGraphBtn.addEventListener('click', ()=>{
 });
 
 
-bfsBtn.addEventListener('click',async ()=>{outputDiv.textContent=''; await bfs(1);});
-dfsBtn.addEventListener('click',async ()=>{outputDiv.textContent='DFS traversal: '; await dfs(1,{});});
-componentsBtn.addEventListener('click',async ()=>{await connectedComponents();});
-dijkstraBtn.addEventListener('click',async ()=>{outputDiv.textContent=''; await dijkstra(1);});
-primsBtn.addEventListener('click',async ()=>{outputDiv.textContent=''; await prims(1);});
+bfsBtn.addEventListener('click', async () => {
+    outputDiv.textContent = '';
+    await bfs(1); 
+
+    timeComplexity.innerText = "Time Complexity: O(V + E)";
+    spaceComplexity.innerText = "Space Complexity: O(V)"; 
+    pseudoDiv.innerHTML = `
+        <h2>BFS (Breadth-First Search) Pseudo-code</h2>
+        <h3>
+            function bfs(startNode) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;initialize queue <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;mark startNode as visited <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;enqueue startNode <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;while queue is not empty <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node = dequeue() <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visit(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for each neighbor of node <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if neighbor not visited <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mark neighbor visited <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enqueue neighbor
+        </h3>
+    `;
+});
+
+dfsBtn.addEventListener('click', async () => {
+    outputDiv.textContent = 'DFS traversal: ';
+    await dfs(1, {}); // call DFS starting from node 1 with empty visited object
+
+    timeComplexity.innerText = "Time Complexity: O(V + E)";
+    spaceComplexity.innerText = "Space Complexity: O(V)"; // recursion stack + visited
+    pseudoDiv.innerHTML = `
+        <h2>DFS (Depth-First Search) Pseudo-code</h2>
+        <h3>
+            function dfs(node, visited) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if node is visited <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;mark node as visited <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;visit(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;for each neighbor of node <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dfs(neighbor, visited)
+        </h3>
+    `;
+});
+
+componentsBtn.addEventListener('click', async () => {
+    await connectedComponents(); // call connected components function
+
+    timeComplexity.innerText = "Time Complexity: O(V + E)";
+    spaceComplexity.innerText = "Space Complexity: O(V)"; // for visited array
+    pseudoDiv.innerHTML = `
+        <h2>Connected Components Pseudo-code</h2>
+        <h3>
+            function connectedComponents() <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;initialize visited array <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;for each node in graph <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if node not visited <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DFS(node, visited) or BFS(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increment component count
+        </h3>
+    `;
+});
+
+dijkstraBtn.addEventListener('click', async () => {
+    outputDiv.textContent = '';
+    await dijkstra(1); // start Dijkstra from node 1
+
+    timeComplexity.innerText = "Time Complexity: O(E log V)";
+    spaceComplexity.innerText = "Space Complexity: O(V + E)";
+    pseudoDiv.innerHTML = `
+        <h2>Dijkstra's Algorithm Pseudo-code</h2>
+        <h3>
+            function dijkstra(start) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;initialize distance array with INF <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;distance[start] = 0 <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;initialize min-priority queue and insert start <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;while queue is not empty <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u = extract node with min distance <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for each neighbor v of u <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if distance[u] + weight(u,v) < distance[v] <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distance[v] = distance[u] + weight(u,v) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;update v in priority queue
+        </h3>
+    `;
+});
+
+primsBtn.addEventListener('click', async () => {
+    outputDiv.textContent = '';
+    await prims(1); // start Prim's algorithm from node 1
+
+    timeComplexity.innerText = "Time Complexity: O(E log V)";
+    spaceComplexity.innerText = "Space Complexity: O(V + E)";
+    pseudoDiv.innerHTML = `
+        <h2>Prim's Algorithm Pseudo-code</h2>
+        <h3>
+            function prims(start) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;initialize key array with INF <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;key[start] = 0 <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;initialize min-priority queue and insert start <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;while queue is not empty <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u = extract node with min key <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mark u as included in MST <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for each neighbor v of u <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if v not in MST and weight(u,v) < key[v] <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key[v] = weight(u,v) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;update v in priority queue
+        </h3>
+    `;
+});
+
