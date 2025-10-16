@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #132440;
+    color: white;
     box-shadow: 1px 1px 10px #748DAE;
     border-radius: 20px;
     height: 20%;
@@ -55,8 +55,8 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    color: #132440;
-    background: linear-gradient(135deg, #1b96e9, #81e6d9);
+    color: white;
+    background: linear-gradient(135deg, #48a7e6, #81e6d9);
 }
 
 .card img{

@@ -7,8 +7,8 @@ body {
 
 header {
     text-align: center;
-    padding: 15px;
-    background:#4CAF50;
+    padding: 5px;
+    background:hwb(122 30% 32%);
     color:white;
 }
 
