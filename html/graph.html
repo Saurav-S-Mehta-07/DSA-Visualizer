@@ -16,25 +16,25 @@
             <h2>Graph Controls</h2>
 
             <label for="graph-type">Graph Type:</label>
-            <select id="graph-type">
+            <select id="graph-type" class="input-feild">
                 <option value="undirected">Undirected</option>
                 <option value="directed">Directed</option>
             </select>
 
             <label for="num-nodes">Number of Nodes:</label>
-            <input type="number" id="num-nodes" min="2" max="10" value="6">
+            <input type="number" id="num-nodes" min="2" max="10" value="6"  class="input-feild">
 
             <label for="edges-input">Edges (format: 1-2-3 → node1-node2-weight):</label>
-            <input type="text" id="edges-input" placeholder="1-2-5,2-3-3">
+            <input type="text" id="edges-input" placeholder="1-2-5,2-3-3" class="input-feild">
 
-            <button id="generate-graph">Generate Graph</button>
+            <button id="generate-graph" class="btn">Generate Graph</button>
 
             <h3>Algorithms</h3>
-            <button id="bfs-btn">BFS</button>
-            <button id="dfs-btn">DFS</button>
-            <button id="components-btn">Connected Components</button>
-            <button id="dijkstra-btn">Dijkstra</button>
-            <button id="prims-btn">Prim's MST</button>
+            <button id="bfs-btn" class="btn">BFS</button>
+            <button id="dfs-btn" class="btn">DFS</button>
+            <button id="components-btn" class="btn">Connected Components</button>
+            <button id="dijkstra-btn" class="btn">Dijkstra</button>
+            <button id="prims-btn" class="btn">Prim's MST</button>
 
             <h3>Output / Result:</h3>
             <div id="output"></div>

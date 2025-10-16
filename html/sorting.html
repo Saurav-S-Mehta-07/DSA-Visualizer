@@ -16,7 +16,7 @@
             <h2>Controls</h2>
 
             <label for="algorithm">Choose Algorithm:</label>
-            <select id="algorithm">
+            <select id="algorithm" class="input-feild">
                 <option value="bubble">Bubble Sort</option>
                 <option value="selection">Selection Sort</option>
                 <option value="insertion">Insertion Sort</option>
@@ -25,18 +25,18 @@
             </select>
 
             <label for="array-length">Array Length:</label>
-            <input type="number" id="array-length" min="2" max="10" value="7">
+            <input type="number" id="array-length" min="2" max="10" value="7"  class="input-feild">
 
             <label for="array-input">Or Enter Array (comma separated):</label>
-            <input type="text" id="array-input" placeholder="e.g. 5,3,8,1,7">
+            <input type="text" id="array-input" placeholder="e.g. 5,3,8,1,7"  class="input-feild">
 
             <label>
                 <input type="checkbox" id="auto-generate" checked>
                 Auto-generate array
             </label>
-
-            <button id="generate">Generate Array</button>
-            <button id="sort">Start Sorting</button>
+ <br>
+            <button id="generate" class="btn">Generate Array</button>
+            <button id="sort" class="btn">Start Sorting</button>
 
             <h3>Current Array:</h3>
             <div id="current-array"></div>
