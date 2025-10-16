@@ -46,6 +46,63 @@
 
         <h3>Current Array:</h3>
         <div id="current-array"></div>
+
+         <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+           <h2 style="text-align:center; margin-bottom:10px;">Linear Search Algorithm</h2>
+         
+           <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+           <ol id="linear-search-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+             <li>Start from the first element of the array.</li>
+             <li>Compare the current element with the target element.</li>
+             <li>If the current element matches the target, return its index.</li>
+             <li>If not, move to the next element.</li>
+             <li>Repeat until the element is found or the array ends.</li>
+             <li>If the element is not found, return -1 (or indicate that it is not present).</li>
+           </ol>
+         
+           <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center;">
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Time Complexity:</strong> O(n)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Space Complexity:</strong> O(1)
+             </div>
+           </div>
+         
+           <div style="margin-top:20px; text-align:center;">
+             <p style="color:#666; font-size:0.9rem;">Graphical Representation (to be added)</p>
+             <div style="width:100%; height:120px; background:#fff; border:1px dashed #ccc; border-radius:6px;"></div>
+           </div>
+         </div>
+
+        <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+          <h2 style="text-align:center; margin-bottom:10px;">Binary Search Algorithm</h2>
+        
+          <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+          <ol id="binary-search-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+            <li>Start with the entire sorted array as your search range.</li>
+            <li>Find the middle index of the current range.</li>
+            <li>If the middle element equals the target, return its index.</li>
+            <li>If the target is smaller than the middle element, narrow the range to the left half.</li>
+            <li>If the target is larger than the middle element, narrow the range to the right half.</li>
+            <li>Repeat steps 2–5 until the target is found or the range becomes empty.</li>
+            <li>If the range is empty, return -1 (element not found).</li>
+          </ol>
+        
+          <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center;">
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Time Complexity:</strong> O(log n)
+            </div>
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Space Complexity:</strong> O(1)
+            </div>
+          </div>
+        
+          <div style="margin-top:20px; text-align:center;">
+            <p style="color:#666; font-size:0.9rem;">Graphical Representation (to be added)</p>
+            <div style="width:100%; height:120px; background:#fff; border:1px dashed #ccc; border-radius:6px;"></div>
+          </div>
+        </div>
     </div>
 
     <div class="right-panel">
@@ -63,6 +120,7 @@
             <div class="pseudo-code"></div>
         </div>
     </div>
+    
 </div>
 
 <script src="../js/searching.js"></script>

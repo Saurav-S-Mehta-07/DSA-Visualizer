@@ -24,9 +24,104 @@
             <button id="preorder-btn" class="btn">Preorder</button>
             <button id="inorder-btn" class="btn">Inorder</button>
             <button id="postorder-btn" class="btn">Postorder</button>
+            <button id="levelorder-btn" class="btn">Levelorder</button>
 
             <h3>Current Tree Array</h3>
             <div id="current-array"></div>
+
+        <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+          <h2 style="text-align:center; margin-bottom:10px;">Preorder Traversal (Binary Tree)</h2>
+        
+          <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+          <ol id="preorder-traversal-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+            <li>Start at the root node of the tree.</li>
+            <li>Visit the current node and process its value.</li>
+            <li>Recursively traverse the left subtree in preorder.</li>
+            <li>Recursively traverse the right subtree in preorder.</li>
+            <li>Continue until all nodes are visited.</li>
+          </ol>
+        
+          <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Time Complexity:</strong> O(n)
+            </div>
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Space Complexity:</strong> O(h)
+            </div>
+          </div>
+        </div>
+        
+        <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+          <h2 style="text-align:center; margin-bottom:10px;">Inorder Traversal (Binary Tree)</h2>
+        
+          <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+          <ol id="inorder-traversal-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+            <li>Start at the root node of the tree.</li>
+            <li>Recursively traverse the left subtree in inorder.</li>
+            <li>Visit the current node and process its value.</li>
+            <li>Recursively traverse the right subtree in inorder.</li>
+            <li>Continue until all nodes are visited.</li>
+          </ol>
+        
+          <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Time Complexity:</strong> O(n)
+            </div>
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Space Complexity:</strong> O(h) <!-- h = height of the tree -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+          <h2 style="text-align:center; margin-bottom:10px;">Postorder Traversal (Binary Tree)</h2>
+        
+          <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+          <ol id="postorder-traversal-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+            <li>Start at the root node of the tree.</li>
+            <li>Recursively traverse the left subtree in postorder.</li>
+            <li>Recursively traverse the right subtree in postorder.</li>
+            <li>Visit the current node and process its value.</li>
+            <li>Continue until all nodes are visited.</li>
+          </ol>
+        
+          <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Time Complexity:</strong> O(n)
+            </div>
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Space Complexity:</strong> O(h) 
+            </div>
+          </div>
+        </div>
+
+        <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+          <h2 style="text-align:center; margin-bottom:10px;">Level Order Traversal (Binary Tree)</h2>
+        
+          <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+          <ol id="level-order-traversal-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+            <li>Start at the root node of the tree.</li>
+            <li>Initialize a queue and enqueue the root node.</li>
+            <li>While the queue is not empty:</li>
+            <ol style="margin-left:20px;">
+              <li>Dequeue a node from the front of the queue and process its value.</li>
+              <li>If the dequeued node has a left child, enqueue it.</li>
+              <li>If the dequeued node has a right child, enqueue it.</li>
+            </ol>
+            <li>Continue until all nodes are visited.</li>
+          </ol>
+        
+          <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Time Complexity:</strong> O(n)
+            </div>
+            <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+              <strong>Space Complexity:</strong> O(n) 
+            </div>
+          </div>
+        </div>
+
+        
         </div>
 
         <div class="right-panel">

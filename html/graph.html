@@ -38,6 +38,112 @@
 
             <h3>Output / Result:</h3>
             <div id="output"></div>
+            
+            <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+              <h2 style="text-align:center; margin-bottom:10px;">Breadth-First Search (BFS) - Graph</h2>
+            
+              <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+              <ol id="bfs-graph-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+                <li>Start at the given source node and mark it as visited.</li>
+                <li>Initialize a queue and enqueue the source node.</li>
+                <li>While the queue is not empty:</li>
+                <ol style="margin-left:20px;">
+                  <li>Dequeue a node from the front of the queue.</li>
+                  <li>Process the node (visit it).</li>
+                  <li>Enqueue all unvisited neighbors of the node and mark them as visited.</li>
+                </ol>
+                <li>Continue until the queue is empty and all reachable nodes are visited.</li>
+              </ol>
+            
+              <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+                  <strong>Time Complexity:</strong> O(V + E) 
+                </div>
+                <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+                  <strong>Space Complexity:</strong> O(V) 
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+              <h2 style="text-align:center; margin-bottom:10px;">Depth-First Search (DFS) - Graph</h2>
+            
+              <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+              <ol id="dfs-graph-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+                <li>Start at the given source node and mark it as visited.</li>
+                <li>Process the current node (visit it).</li>
+                <li>Recursively visit all unvisited neighbors of the current node.</li>
+                <li>Backtrack when all neighbors of a node are visited and continue the recursion.</li>
+                <li>Continue until all reachable nodes are visited.</li>
+              </ol>
+            
+              <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+                  <strong>Time Complexity:</strong> O(V + E) 
+                </div>
+                <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+                  <strong>Space Complexity:</strong> O(V) 
+                </div>
+              </div>
+            </div>
+            
+
+           <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+             <h2 style="text-align:center; margin-bottom:10px;">Dijkstra's Algorithm (Shortest Path)</h2>
+           
+             <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+             <ol id="dijkstra-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+               <li>Initialize distances of all vertices as ∞ except the source vertex, which is 0.</li>
+               <li>Create a priority queue (min-heap) and insert the source vertex with distance 0.</li>
+               <li>While the priority queue is not empty:</li>
+               <ol style="margin-left:20px;">
+                 <li>Extract the vertex u with the minimum distance from the queue.</li>
+                 <li>For each neighbor v of u, check if the distance to v can be minimized through u.</li>
+                 <li>If yes, update the distance of v and insert it into the priority queue.</li>
+               </ol>
+               <li>Repeat until all vertices are processed.</li>
+               <li>At the end, the shortest distances from the source to all vertices are determined.</li>
+             </ol>
+           
+             <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+               <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+                 <strong>Time Complexity:</strong> O((V + E) log V)
+               </div>
+               <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+                 <strong>Space Complexity:</strong> O(V + E)
+               </div>
+             </div>
+           </div>
+    
+            <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+              <h2 style="text-align:center; margin-bottom:10px;">Prim's Algorithm (Minimum Spanning Tree)</h2>
+            
+              <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+              <ol id="prims-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+                <li>Initialize a set to track vertices included in the MST (start with any vertex).</li>
+                <li>Assign key values to all vertices as ∞, except the starting vertex which is 0.</li>
+                <li>While all vertices are not included in the MST:</li>
+                <ol style="margin-left:20px;">
+                  <li>Select the vertex u with the minimum key value not yet included in MST.</li>
+                  <li>Include u in the MST set.</li>
+                  <li>For each neighbor v of u, if v is not in MST and edge weight(u,v) < key[v], update key[v] = edge weight(u,v).</li>
+                </ol>
+                <li>Repeat until all vertices are included in the MST.</li>
+                <li>At the end, the MST edges and their weights are determined.</li>
+              </ol>
+            
+              <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+                  <strong>Time Complexity:</strong> O((V + E) log V) <!-- using min-heap -->
+                </div>
+                <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+                  <strong>Space Complexity:</strong> O(V + E)
+                </div>
+              </div>
+            </div>
+            
+            
+
         </div>
 
         <div class="right-panel">

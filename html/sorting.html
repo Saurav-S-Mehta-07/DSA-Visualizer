@@ -34,16 +34,150 @@
                 <input type="checkbox" id="auto-generate" checked>
                 Auto-generate array
             </label>
- <br>
+            <br>
             <button id="generate" class="btn">Generate Array</button>
             <button id="sort" class="btn">Start Sorting</button>
 
             <h3>Current Array:</h3>
             <div id="current-array"></div>
+
+
+         <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+           <h2 style="text-align:center; margin-bottom:10px;">Bubble Sort Algorithm</h2>
+         
+           <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+           <ol id="bubble-sort-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+             <li>Start from the first element of the array.</li>
+             <li>Compare the current element with the next one.</li>
+             <li>If the current element is greater, swap them.</li>
+             <li>Continue comparing adjacent elements until the end of the array.</li>
+             <li>After each pass, the largest element "bubbles up" to its correct position at the end.</li>
+             <li>Repeat the process for the remaining unsorted part of the array.</li>
+             <li>If no swaps occur in a pass, the array is sorted and the algorithm stops.</li>
+           </ol>
+         
+           <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Best Case:</strong> O(n)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Average Case:</strong> O(n²)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Worst Case:</strong> O(n²)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Space Complexity:</strong> O(1)
+             </div>
+           </div>
+         </div>
+         
+         <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+           <h2 style="text-align:center; margin-bottom:10px;">Selection Sort Algorithm</h2>
+         
+           <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+           <ol id="selection-sort-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+             <li>Start from the first element of the array.</li>
+             <li>Find the minimum element from the unsorted part of the array.</li>
+             <li>Swap the minimum element with the first element of the unsorted part.</li>
+             <li>Move the boundary of the sorted and unsorted part one position forward.</li>
+             <li>Repeat the process until the entire array becomes sorted.</li>
+           </ol>
+         
+           <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Best Case:</strong> O(n²)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Average Case:</strong> O(n²)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Worst Case:</strong> O(n²)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Space Complexity:</strong> O(1)
+             </div>
+           </div>
+         </div>
+         
+         <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+           <h2 style="text-align:center; margin-bottom:10px;">Insertion Sort Algorithm</h2>
+         
+           <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+           <ol id="insertion-sort-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+             <li>Start from the second element of the array (index 1).</li>
+             <li>Compare the current element with elements before it.</li>
+             <li>Shift all elements that are greater than the current element one position to the right.</li>
+             <li>Insert the current element at its correct position in the sorted part of the array.</li>
+             <li>Move to the next element and repeat steps 2–4 until the array is completely sorted.</li>
+           </ol>
+         
+           <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Best Case:</strong> O(n)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Average Case:</strong> O(n²)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Worst Case:</strong> O(n²)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Space Complexity:</strong> O(1)
+             </div>
+           </div>
+         </div>
+         
+         <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+           <h2 style="text-align:center; margin-bottom:10px;">Heap Sort Algorithm</h2>
+         
+           <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+           <ol id="heap-sort-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+             <li>Build a max heap from the input array.</li>
+             <li>Swap the root (maximum value) of the heap with the last element of the heap.</li>
+             <li>Reduce the heap size by one and heapify the root element to maintain the max heap property.</li>
+             <li>Repeat steps 2–3 until the heap size becomes 1.</li>
+             <li>At the end, the array is sorted in ascending order.</li>
+           </ol>
+         
+           <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Time Complexity:</strong> O(n log n)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Space Complexity:</strong> O(1)
+             </div>
+           </div>
+         </div>
+         
+         <div class="algo-section" style="border:1px solid #ccc; border-radius:10px; padding:16px; max-width:700px; margin:20px auto; font-family:Arial, sans-serif; background:#fafafa;">
+           <h2 style="text-align:center; margin-bottom:10px;">Counting Sort Algorithm</h2>
+         
+           <h3 style="margin-bottom:6px; color:#333;">Steps:</h3>
+           <ol id="counting-sort-steps" style="line-height:1.6; font-size:1rem; color:#333; margin-left:20px;">
+             <li>Find the maximum element in the array.</li>
+             <li>Create a count array of size (maximum + 1) and initialize all values to 0.</li>
+             <li>Count the occurrence of each element in the input array and store it in the count array.</li>
+             <li>Modify the count array such that each element at index i stores the sum of previous counts (cumulative count).</li>
+             <li>Build the output array by placing elements at their correct positions using the count array, and decrease the count after placing each element.</li>
+             <li>Copy the sorted elements from the output array back to the original array.</li>
+           </ol>
+         
+           <div style="margin-top:16px; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:10px;">
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Time Complexity:</strong> O(n + k)
+             </div>
+             <div style="background:#f2f2f2; padding:8px 12px; border-radius:6px;">
+               <strong>Space Complexity:</strong> O(n + k)
+             </div>
+           </div>
+         </div>
+
+
         </div>
 
         <div class="right-panel">
-            <h2 id="visual-title">Array Visualization</h2>
+            <h2 id="visual-title">Visualization</h2>
             <div id="array-container"></div>
 
             <h2 id="heap-title">Heap Tree Visualization</h2>

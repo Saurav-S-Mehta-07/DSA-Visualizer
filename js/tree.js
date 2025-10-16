@@ -6,6 +6,7 @@ const currentArrayDiv = document.getElementById('current-array');
 const preorderBtn = document.getElementById('preorder-btn');
 const inorderBtn = document.getElementById('inorder-btn');
 const postorderBtn = document.getElementById('postorder-btn');
+const levelorderBtn = document.getElementById('levelorder-btn');
 
 const timeComplexity = document.getElementById('tc');
 const spaceComplexity = document.getElementById('sc');
@@ -112,6 +113,24 @@ async function postorderTraversal(index=0, visited=[]){
     await sleep(500);
 }
 
+async function levelOrderTraversal() {
+    if(treeArray.length === 0) return;
+    const queue = [0]; 
+    const visited = [];
+
+    while(queue.length > 0){
+        const index = queue.shift();
+        if(index >= treeArray.length) continue;
+        visited.push(index);
+        renderTree(index, visited);
+        await sleep(500);
+        const leftChild = 2*index + 1;
+        const rightChild = 2*index + 2;
+        if(leftChild < treeArray.length) queue.push(leftChild);
+        if(rightChild < treeArray.length) queue.push(rightChild);
+    }
+}
+
 generateTreeBtn.addEventListener('click', ()=>{
     const size = parseInt(treeSizeInput.value) || 7;
     generateTree(size);
@@ -167,6 +186,46 @@ postorderBtn.addEventListener('click', () => {
         </h3>
     `;
 });
+
+
+async function levelOrderTraversal() {
+    if(treeArray.length === 0) return;
+    const queue = [0]; 
+    const visited = [];
+
+    while(queue.length > 0){
+        const index = queue.shift();
+        if(index >= treeArray.length) continue;
+        visited.push(index);
+        renderTree(index, visited);
+        await sleep(500);
+        const leftChild = 2*index + 1;
+        const rightChild = 2*index + 2;
+        if(leftChild < treeArray.length) queue.push(leftChild);
+        if(rightChild < treeArray.length) queue.push(rightChild);
+    }
+}
+
+levelorderBtn.addEventListener('click', () => {
+    levelOrderTraversal();
+    timeComplexity.innerText = "Time Complexity: O(n)";
+    spaceComplexity.innerText = "Space Complexity: O(n)"; 
+    pseudoDiv.innerHTML = `
+        <h2>Level Order Traversal (Pseudo-code)</h2>
+        <h3>
+            function levelOrder(root) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if root == null <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;queue = [root] <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;while queue is not empty <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node = queue.pop() <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visit(node) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if node.left != null queue.push(node.left) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if node.right != null queue.push(node.right)
+        </h3>
+    `;
+});
+
 
 
 generateTree(parseInt(treeSizeInput.value));

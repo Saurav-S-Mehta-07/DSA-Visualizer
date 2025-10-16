@@ -31,6 +31,7 @@ header a {
     box-sizing: border-box;
     background:#fafafa;
     border-right:1px solid #ccc;
+    overflow: scroll;
 }
 
 .left-panel input, .left-panel button {

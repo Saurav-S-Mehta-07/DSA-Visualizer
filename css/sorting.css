@@ -190,3 +190,13 @@ header a{
     transform: scale(0.9);
     box-shadow:2px 2px 10px #2196F3;
 }
+
+.know-more-btn{
+    height: 100px;
+    width: 100px;
+}
+
+.more{
+    height: 100px;
+    background-color: green;
+}
