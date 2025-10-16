@@ -15,9 +15,6 @@ This project is an **interactive DSA visualizer** designed to make learning data
   - **Binary Tree Traversals:** Preorder, Inorder, Postorder, Level Order
   - **Graph Algorithms:** BFS, DFS, Dijkstra’s Algorithm, Prim’s Algorithm
 
-## Demo
-*Add screenshots or GIFs of your visualizer here to showcase functionality.*
-
 ## Installation
 1. Clone the repository:
 ```bash
