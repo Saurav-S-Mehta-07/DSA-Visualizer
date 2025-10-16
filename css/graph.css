@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background: #f7f7f7;
@@ -98,7 +98,7 @@ h1 {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #4CAF50;
+    background-color: #000;
     color: #fff;
     text-align: center;
     line-height: 40px;

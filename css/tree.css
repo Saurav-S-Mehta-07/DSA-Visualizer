@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin:0;
     padding:0;
     background:#f0f0f0;
@@ -79,7 +79,7 @@ header a {
     width:40px;
     height:40px;
     border-radius:50%;
-    background-color:#4CAF50;
+    background-color:#000;
     color:white;
     display:flex;
     align-items:center;
@@ -88,11 +88,11 @@ header a {
 }
 
 .tree-node.active {
-    background-color:#f44336;
+    background-color:#2196F3;
 }
 
 .tree-node.visited {
-    background-color:#2196F3;
+    background-color:#f44336;
 }
 
 .tree-line {
