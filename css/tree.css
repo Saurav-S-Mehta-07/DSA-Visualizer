@@ -137,7 +137,3 @@ header a {
 .input-feild{
     border-radius: 12px;
 }
-
-.input-feild:hover{
-    box-shadow: 2px 2px 10px #2196F3;
-}
