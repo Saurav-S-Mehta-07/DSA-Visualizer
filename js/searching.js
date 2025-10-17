@@ -92,7 +92,7 @@ generateBtn.addEventListener('click', ()=>{
         }
         array = parsed;
         if(algorithmSelect.value==='binary'){
-            array.sort((a,b)=>a-b); // sort for binary search
+            array.sort((a,b)=>a-b); 
         }
     } else {
         generateArray(length);

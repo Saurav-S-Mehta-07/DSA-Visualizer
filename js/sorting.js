@@ -167,12 +167,11 @@ async function heapSort() {
 }
 
 function renderHeapTree(active1 = -1, active2 = -1) {
-    heapTree.innerHTML = ''; // Clear previous visualization
+    heapTree.innerHTML = ''; 
     const levels = Math.ceil(Math.log2(array.length + 1));
     const containerWidth = heapTree.offsetWidth;
     let index = 0;
 
-    // Loop through each level of the heap
     for (let i = 0; i < levels; i++) {
         const nodesInLevel = Math.min(Math.pow(2, i), array.length - index);
         const levelDiv = document.createElement('div');
@@ -183,19 +182,16 @@ function renderHeapTree(active1 = -1, active2 = -1) {
 
         const spacing = containerWidth / (nodesInLevel + 1);
 
-        // Create heap nodes (no connecting lines)
         for (let j = 0; j < nodesInLevel && index < array.length; j++) {
             const nodeDiv = document.createElement('div');
             nodeDiv.classList.add('heap-node');
             nodeDiv.textContent = array[index];
             nodeDiv.style.position = 'absolute';
 
-            // Set position
             const x = spacing * (j + 1) - 25;
             nodeDiv.style.left = x + 'px';
             nodeDiv.style.top = '0px';
 
-            // Highlight active nodes
             if (index === active1 || index === active2)
                 nodeDiv.classList.add('active');
 

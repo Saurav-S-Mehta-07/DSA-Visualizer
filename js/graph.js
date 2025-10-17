@@ -250,10 +250,10 @@ bfsBtn.addEventListener('click', async () => {
 
 dfsBtn.addEventListener('click', async () => {
     outputDiv.textContent = 'DFS traversal: ';
-    await dfs(1, {}); // call DFS starting from node 1 with empty visited object
+    await dfs(1, {}); 
 
     timeComplexity.innerText = "Time Complexity: O(V + E)";
-    spaceComplexity.innerText = "Space Complexity: O(V)"; // recursion stack + visited
+    spaceComplexity.innerText = "Space Complexity: O(V)"; 
     pseudoDiv.innerHTML = `
         <h2>DFS (Depth-First Search) Pseudo-code</h2>
         <h3>
@@ -269,10 +269,10 @@ dfsBtn.addEventListener('click', async () => {
 });
 
 componentsBtn.addEventListener('click', async () => {
-    await connectedComponents(); // call connected components function
+    await connectedComponents(); 
 
     timeComplexity.innerText = "Time Complexity: O(V + E)";
-    spaceComplexity.innerText = "Space Complexity: O(V)"; // for visited array
+    spaceComplexity.innerText = "Space Complexity: O(V)";
     pseudoDiv.innerHTML = `
         <h2>Connected Components Pseudo-code</h2>
         <h3>
@@ -288,7 +288,7 @@ componentsBtn.addEventListener('click', async () => {
 
 dijkstraBtn.addEventListener('click', async () => {
     outputDiv.textContent = '';
-    await dijkstra(1); // start Dijkstra from node 1
+    await dijkstra(1); 
 
     timeComplexity.innerText = "Time Complexity: O(E log V)";
     spaceComplexity.innerText = "Space Complexity: O(V + E)";
@@ -311,7 +311,7 @@ dijkstraBtn.addEventListener('click', async () => {
 
 primsBtn.addEventListener('click', async () => {
     outputDiv.textContent = '';
-    await prims(1); // start Prim's algorithm from node 1
+    await prims(1); 
 
     timeComplexity.innerText = "Time Complexity: O(E log V)";
     spaceComplexity.innerText = "Space Complexity: O(V + E)";

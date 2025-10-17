@@ -11,7 +11,7 @@ const levelorderBtn = document.getElementById('levelorder-btn');
 const timeComplexity = document.getElementById('tc');
 const spaceComplexity = document.getElementById('sc');
 const pseudoDiv = document.querySelector('.pseudo-code');
-const traversalOutput = document.getElementById('traversal-output'); // ✅ added
+const traversalOutput = document.getElementById('traversal-output');
 
 let treeArray = [];
 
@@ -21,7 +21,7 @@ function generateTree(size=7){
     treeArray = Array.from({length:size}, ()=>Math.floor(Math.random()*50)+1);
     updateCurrentArray();
     renderTree();
-    traversalOutput.textContent = ''; // ✅ clear old output
+    traversalOutput.textContent = ''; 
 }
 
 function updateCurrentArray(){
@@ -95,7 +95,6 @@ async function preorderTraversal(index=0, visited=[]){
     await sleep(500);
     await preorderTraversal(2*index+1, visited);
     await preorderTraversal(2*index+2, visited);
-    // ✅ update traversal output after complete traversal
     if(index === 0) traversalOutput.textContent = 'Preorder: ' + visited.map(i=>treeArray[i]).join(' → ');
 }
 
@@ -135,7 +134,6 @@ async function levelOrderTraversal() {
         if(leftChild < treeArray.length) queue.push(leftChild);
         if(rightChild < treeArray.length) queue.push(rightChild);
     }
-    // ✅ show final output
     traversalOutput.textContent = 'Level Order: ' + visited.map(i=>treeArray[i]).join(' → ');
 }
 
