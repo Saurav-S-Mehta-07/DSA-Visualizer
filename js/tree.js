@@ -11,6 +11,7 @@ const levelorderBtn = document.getElementById('levelorder-btn');
 const timeComplexity = document.getElementById('tc');
 const spaceComplexity = document.getElementById('sc');
 const pseudoDiv = document.querySelector('.pseudo-code');
+const traversalOutput = document.getElementById('traversal-output'); // ✅ added
 
 let treeArray = [];
 
@@ -20,6 +21,7 @@ function generateTree(size=7){
     treeArray = Array.from({length:size}, ()=>Math.floor(Math.random()*50)+1);
     updateCurrentArray();
     renderTree();
+    traversalOutput.textContent = ''; // ✅ clear old output
 }
 
 function updateCurrentArray(){
@@ -93,6 +95,8 @@ async function preorderTraversal(index=0, visited=[]){
     await sleep(500);
     await preorderTraversal(2*index+1, visited);
     await preorderTraversal(2*index+2, visited);
+    // ✅ update traversal output after complete traversal
+    if(index === 0) traversalOutput.textContent = 'Preorder: ' + visited.map(i=>treeArray[i]).join(' → ');
 }
 
 async function inorderTraversal(index=0, visited=[]){
@@ -102,6 +106,7 @@ async function inorderTraversal(index=0, visited=[]){
     renderTree(index, visited);
     await sleep(500);
     await inorderTraversal(2*index+2, visited);
+    if(index === 0) traversalOutput.textContent = 'Inorder: ' + visited.map(i=>treeArray[i]).join(' → ');
 }
 
 async function postorderTraversal(index=0, visited=[]){
@@ -111,6 +116,7 @@ async function postorderTraversal(index=0, visited=[]){
     visited.push(index);
     renderTree(index, visited);
     await sleep(500);
+    if(index === 0) traversalOutput.textContent = 'Postorder: ' + visited.map(i=>treeArray[i]).join(' → ');
 }
 
 async function levelOrderTraversal() {
@@ -129,6 +135,8 @@ async function levelOrderTraversal() {
         if(leftChild < treeArray.length) queue.push(leftChild);
         if(rightChild < treeArray.length) queue.push(rightChild);
     }
+    // ✅ show final output
+    traversalOutput.textContent = 'Level Order: ' + visited.map(i=>treeArray[i]).join(' → ');
 }
 
 generateTreeBtn.addEventListener('click', ()=>{
@@ -187,25 +195,6 @@ postorderBtn.addEventListener('click', () => {
     `;
 });
 
-
-async function levelOrderTraversal() {
-    if(treeArray.length === 0) return;
-    const queue = [0]; 
-    const visited = [];
-
-    while(queue.length > 0){
-        const index = queue.shift();
-        if(index >= treeArray.length) continue;
-        visited.push(index);
-        renderTree(index, visited);
-        await sleep(500);
-        const leftChild = 2*index + 1;
-        const rightChild = 2*index + 2;
-        if(leftChild < treeArray.length) queue.push(leftChild);
-        if(rightChild < treeArray.length) queue.push(rightChild);
-    }
-}
-
 levelorderBtn.addEventListener('click', () => {
     levelOrderTraversal();
     timeComplexity.innerText = "Time Complexity: O(n)";
@@ -225,7 +214,5 @@ levelorderBtn.addEventListener('click', () => {
         </h3>
     `;
 });
-
-
 
 generateTree(parseInt(treeSizeInput.value));
