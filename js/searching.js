@@ -125,7 +125,7 @@ startSearchBtn.addEventListener('click', async ()=>{
     else{
         await binarySearch(target);
         timeComplexity.innerText = "Time Complexity : O(log n)";
-         spaceComplexity.innerText = "Space Comaplexity : O(1)";
+         spaceComplexity.innerText = "Space Complexity : O(1)";
          pseudoDiv.innerHTML = `
             <h2>Binary Search (Pseudo-code)</h2>
             <h3>
