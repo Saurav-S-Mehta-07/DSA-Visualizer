@@ -109,7 +109,7 @@ startSearchBtn.addEventListener('click', async ()=>{
     }
     if(algorithmSelect.value==='linear'){
          await linearSearch(target);
-         timeComplexity.innerText = "Time Complexity : O(n^2)";
+         timeComplexity.innerText = "Time Complexity : O(n)";
          spaceComplexity.innerText = "Space Complexity : O(1)";
           pseudoDiv.innerHTML = `
             <h2>Linear Search (Pseudo-code)</h2>
