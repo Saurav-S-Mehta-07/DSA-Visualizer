@@ -42,11 +42,9 @@ It helps users clearly understand how sorting, searching, tree traversal, and gr
 To create a *visual and interactive tool* that simplifies learning Data Structures and Algorithms by showing how data changes at each step during execution.
 
 ---
-
 ## Tech Stack
 - *Frontend:* HTML, CSS, JavaScript  
 - *Visualization:* Custom JS animations / DOM manipulation  
-
 ---
 ##  How to Run Locally
 1. Clone the repository  
