@@ -10,9 +10,7 @@ This project visualizes the internal working of *Data Structures and Algorithms*
 It helps users clearly understand how sorting, searching, tree traversal, and graph algorithms operate.
 
 ---
-
 #Features
-
 ### Searching Algorithms
 - Linear Search  
 - Binary Search  
